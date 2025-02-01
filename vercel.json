@@ -1,9 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "api/server.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/chat", "dest": "api/server.js" }
+  "rewrites": [
+    { "source": "/api/chat", "destination": "api/server.js" }
   ]
 }
