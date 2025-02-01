@@ -20,29 +20,6 @@ const fileManager = new GoogleAIFileManager(apiKey);
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files (HTML, CSS, JS)
 app.use(express.json()); // Enable parsing JSON request bodies
 
-module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
-  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS'); // Allow these methods
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-      return res.status(200).end(); // Handle preflight requests
-  }
-
-  if (req.method !== 'POST') {
-      return res.status(405).json({ error: "Method not allowed" });
-  }
-
-  const { message } = req.body;
-
-  if (!message) {
-      return res.status(400).json({ error: "Message is required" });
-  }
-
-  return res.json({ response: `You said: ${message}` });
-};
-
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/'); // Ensure this directory exists
