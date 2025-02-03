@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gemini Chat</title>
     <style>
-        body {
+        html, body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: transparent;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
         }
         #chat-icon {
             position: fixed;
@@ -31,8 +34,8 @@
             bottom: 80px;
             right: 20px;
             width: 300px;
-            background: white;
-            border: 1px solid #ccc;
+            background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+            border: 1px solid rgba(200, 200, 200, 0.8);
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -58,15 +61,19 @@
             height: 300px;
             overflow-y: auto;
             padding: 10px;
+            background: transparent; /* Remove background */
         }
         #input-container {
             display: flex;
             padding: 10px;
             gap: 5px;
+            background: transparent;
         }
         input[type="text"] {
             flex: 1;
             padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         button {
             padding: 5px 10px;
